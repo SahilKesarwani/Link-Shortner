@@ -1,0 +1,17 @@
+.L_Link {
+  display: inline-block;
+  width: 30vw;
+  overflow: hidden;
+}
+.L_Link:hover {
+  overflow-x: scroll;
+}
+
+@media screen and (min-width: 576px) {
+  .L_Link {
+    width: 60vw;
+  }
+  .L_Link:hover {
+    overflow-x: scroll;
+  }
+}
