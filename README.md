@@ -22,11 +22,15 @@ Project is created with:
 
 ## Setup
 
-To run this project, install it locally using npm:
+- Make .env (See .envsample)
+
+- To run this project, install it locally using npm:
 
 ```
 $ cd Link-Shortner
 $ npm install
-$ npm run client-install
+$ cd client
+$ npm install
+$ cd ..
 $ npm run dev
 ```
