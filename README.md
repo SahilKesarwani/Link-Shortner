@@ -18,14 +18,15 @@ Project is created with:
 - Node version: 14.17.3
 - Express version: 4.17.1
 - Mongoose version: 6.0.11
+- ShortId version: 2.2.16
 
 ## Setup
 
 To run this project, install it locally using npm:
 
 ```
-$ cd ./linkshortner
+$ cd Link-Shortner
 $ npm install
-$ npm client-install
+$ npm run client-install
 $ npm run dev
 ```
