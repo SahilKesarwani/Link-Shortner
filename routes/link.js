@@ -20,20 +20,27 @@ router.post("/short", async (req, res) => {
 	// Generate the short id
 	const shortLinkCode = shortId.generate();
 
-	// Check if full Link is valid
+	// Check if Full Link is valid
 	if (validUrl.isUri(fullLink)) {
 		try {
+			// Check if Full Link is already available
 			const link = await ShortLink.findOne({ fullLink });
 			if (link == null) {
-				const shortLink = `${baseUrl}/${shortLinkCode}`;
-				const newShortLink = new ShortLink({
-					shortId: shortLinkCode,
-					fullLink,
-					shortLink,
-				});
+				// Check if Short Link is available
+				const shortenLink = await ShortLink.findOne({ shortLink: fullLink })
+				if (shortenLink == null) {
+					const shortLink = `${baseUrl}/${shortLinkCode}`;
+					const newShortLink = new ShortLink({
+						shortId: shortLinkCode,
+						fullLink,
+						shortLink,
+					});
 
-				await newShortLink.save();
-				res.json(newShortLink);
+					await newShortLink.save();
+					res.json(newShortLink);
+				} else {
+					res.json(shortenLink);
+				}
 			} else {
 				res.json(link);
 			}

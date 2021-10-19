@@ -9,8 +9,8 @@ const Form = ({ fullLink, onTextChange, onLinkSubmit }) => {
 				</label>
 				<input type="url" value={fullLink} className="form-control" id="fullLink" onChange={onTextChange} placeholder="https://example.com" />
 			</div>
-			<button type="submit" className="btn btn-primary">
-				Submit
+			<button type="submit" className="btn btn-primary text-center">
+				Proceed to Short-Link
 			</button>
 		</form>
 	);
