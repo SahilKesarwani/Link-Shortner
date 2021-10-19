@@ -8,19 +8,19 @@ const Card = ({ desc, loading }) => {
 		} else {
 			if (Object.keys(desc).length !== 0) {
 				return (
-					<div className="card text-center border-dark">
-						<div className="card-header">Description</div>
+					<div className="card text-center border-white bg-dark text-light">
+						<div className="card-header bg-black">Description</div>
 						<div className="card-body">
 							<h5 className="card-title">Your given link:</h5>
 							<p className="card-text">
-								<a href={desc.fullLink}>{desc.fullLink}</a>
+								<a href={desc.fullLink} className="text-decoration-none">{desc.fullLink}</a>
 							</p>
 							<h5 className="card-title">Your requested short link:</h5>
 							<p className="card-text">
-								<a href={desc.shortLink}>{desc.shortLink}</a>
+								<a href={desc.shortLink} className="text-decoration-none">{desc.shortLink}</a>
 							</p>
 						</div>
-						<div className="card-footer text-black">Clicks: {desc.clicks}</div>
+						<div className="card-footer text-muted bg-black">Clicks: {desc.clicks}</div>
 					</div>
 				);
 			}

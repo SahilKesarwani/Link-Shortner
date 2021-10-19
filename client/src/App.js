@@ -3,6 +3,7 @@ import axios from "axios";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
 import Card from "./components/Card";
+import Footer from "./components/Footer";
 
 const App = () => {
 	const [fullLink, setFullLink] = useState("");
@@ -27,11 +28,12 @@ const App = () => {
 	};
 
 	return (
-		<div>
+		<div class="bg-dark text-white" style={{ minHeight: "100vh" }}>
 			<Navbar />
 			<div className="container">
 				<Form fullLink={fullLink} onTextChange={onTextChange} onLinkSubmit={onLinkSubmit} />
 				<Card desc={desc} loading={loading} />
+				<Footer />
 			</div>
 		</div>
 	);

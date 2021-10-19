@@ -1,2 +1,2 @@
 MONGO_URI=YOUR_MONGO_URI
-baseUrl=SERVER_BASE_URL
+baseUrl=http://localhost:8000                                                                                                                      
