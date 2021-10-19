@@ -3,12 +3,10 @@ const mongoose = require("mongoose");
 const path = require("path");
 require("dotenv").config();
 
-const ShortLink = require("./models/ShortLink");
-
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-app.use(express.json());
+app.use(express.json({ extended: false }));
 app.use(express.urlencoded({ extended: false }));
 
 // DB Config
@@ -23,33 +21,9 @@ mongoose
 	.then(() => console.log("MongoDB Connected"))
 	.catch(err => console.log(err));
 
-app.get("/", (req, res) => {
-	ShortLink.find()
-		.then(shortLinks => res.json(shortLinks))
-		.catch(err => res.status(404).json({ message: "ShortLins were not found." }));
-});
-
-app.post("/", (req, res) => {
-	const newShortLink = new ShortLink({
-		fullLink: req.body.fullLink,
-	});
-
-	newShortLink
-		.save()
-		.then(shortLink => res.json(shortLink))
-		.catch(err => res.status(404).json({ message: "ShortLink was not saved." }));
-});
-
-app.get("/:shortLink", async (req, res) => {
-	const shortLink = req.params.shortLink;
-	const link = await ShortLink.findOne({ shortLink });
-	if (link == null) return res.sendStatus(404);
-
-	link.clicks++;
-	link.save();
-
-	res.redirect(link.fullLink);
-});
+// Define Routes
+app.use("/", require("./routes/index"));
+app.use("/api/link", require("./routes/link"));
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {

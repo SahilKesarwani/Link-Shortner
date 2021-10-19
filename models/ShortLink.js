@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
-const shortid = require("shortid");
 
 const Schema = mongoose.Schema;
 
 const ShortLinkSchema = new Schema({
+	shortId: {
+		type: String,
+		required: true,
+	},
 	fullLink: {
 		type: String,
 		required: true,
@@ -11,7 +14,6 @@ const ShortLinkSchema = new Schema({
 	shortLink: {
 		type: String,
 		required: true,
-		default: shortid.generate,
 	},
 	clicks: {
 		type: Number,
