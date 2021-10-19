@@ -5,7 +5,7 @@ const Form = ({ fullLink, onTextChange, onLinkSubmit }) => {
 		<form className="my-5" onSubmit={onLinkSubmit}>
 			<div className="mb-3">
 				<label htmlFor="fullLink" className="form-label">
-					Full Link
+					Enter Full Link
 				</label>
 				<input type="url" value={fullLink} className="form-control" id="fullLink" onChange={onTextChange} placeholder="https://example.com" />
 			</div>

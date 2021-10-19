@@ -28,13 +28,13 @@ const App = () => {
 	};
 
 	return (
-		<div class="bg-dark text-white" style={{ minHeight: "100vh" }}>
+		<div class="bg-dark text-white min-vh-100">
 			<Navbar />
 			<div className="container">
 				<Form fullLink={fullLink} onTextChange={onTextChange} onLinkSubmit={onLinkSubmit} />
 				<Card desc={desc} loading={loading} />
-				<Footer />
 			</div>
+			<Footer />
 		</div>
 	);
 };
