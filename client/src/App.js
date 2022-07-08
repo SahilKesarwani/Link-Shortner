@@ -28,7 +28,7 @@ const App = () => {
 	};
 
 	return (
-		<div class="bg-dark text-white min-vh-100">
+		<div className="bg-dark text-white min-vh-100">
 			<Navbar />
 			<div className="container">
 				<Form fullLink={fullLink} onTextChange={onTextChange} onLinkSubmit={onLinkSubmit} />
